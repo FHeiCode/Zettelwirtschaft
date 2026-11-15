@@ -1,6 +1,6 @@
 # Zettelwirtschaft – Kasse
 
-Eigenständige App neben der Ausgaben-App Zettelwirtschaft (eigenes Paket `de.zettelwirtschaft.kasse`, beide laufen nebeneinander).
+Eigenständige App neben der Ausgaben-App Zettelwirtschaft (eigenes Paket `de.zettelwirtschaft.kasse`, beide laufen nebeneinander; die Ausgaben-App liegt jetzt in `zettelwirtschaft_01`).
 
 Kassen-App für Kneipen auf dem Android-Handy. Sie arbeitet mit einer Cloud-TSE (fiskaly) und unterstützt Deckel, Barzahlung, Überweisung per GiroCode und SEPA-Lastschrift für Stammgäste.
 
@@ -35,7 +35,7 @@ Alle Daten bleiben auf dem Handy und gehen nicht in Cloud-Backups. Ausnahme sind
 ## Installation
 
 Die aktuelle APK gibt es immer unter
-`https://github.com/FHeiCode/zettelwirtschaft-kasse/releases/latest/download/zettelwirtschaft-kasse.apk`
+`https://github.com/FHeiCode/Zettelwirtschaft/releases/latest/download/zettelwirtschaft-kasse.apk`
 
 ## Build und Release
 
