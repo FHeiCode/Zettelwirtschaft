@@ -10,6 +10,10 @@ import java.time.LocalDate
 
 class LogicTest {
 
+    // org.json in der Android-Variante kennt kein getBigDecimal
+    private fun dec(o: org.json.JSONObject, key: String) = java.math.BigDecimal(o.get(key).toString())
+
+
     @Test fun money() {
         assertEquals("12.50", apiDecimal(1250))
         assertEquals("-3.05", apiDecimal(-305))
@@ -96,8 +100,8 @@ class LogicTest {
         val j = ClosingBuilder.build(3, "2026-11-15", "client", list, 1_700_000_100)
         val pay = j.getJSONObject("cash_statement").getJSONObject("payment")
         // bar: 9,50 − 9,50 + 7,00 = 7,00; unbar 7,00
-        assertEquals(0, pay.getBigDecimal("cash_amount").compareTo(java.math.BigDecimal("7.00")))
-        assertEquals(0, pay.getBigDecimal("full_amount").compareTo(java.math.BigDecimal("14.00")))
+        assertEquals(0, dec(pay, "cash_amount").compareTo(java.math.BigDecimal("7.00")))
+        assertEquals(0, dec(pay, "full_amount").compareTo(java.math.BigDecimal("14.00")))
         val txs = j.getJSONArray("transactions")
         assertEquals(5, txs.length())
         assertTrue(txs.getJSONObject(2).getJSONObject("head").getBoolean("storno"))
@@ -107,8 +111,8 @@ class LogicTest {
         var gross = java.math.BigDecimal.ZERO
         for (i in 0 until umsatz.length()) {
             val a = umsatz.getJSONObject(i)
-            assertEquals(0, a.getBigDecimal("incl_vat").compareTo(a.getBigDecimal("excl_vat").add(a.getBigDecimal("vat"))))
-            gross = gross.add(a.getBigDecimal("incl_vat"))
+            assertEquals(0, dec(a, "incl_vat").compareTo(dec(a, "excl_vat").add(dec(a, "vat"))))
+            gross = gross.add(dec(a, "incl_vat"))
         }
         assertEquals(0, gross.compareTo(java.math.BigDecimal("14.00")))
     }
