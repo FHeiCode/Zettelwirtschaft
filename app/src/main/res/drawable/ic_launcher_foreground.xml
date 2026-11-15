@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Eigenes Motiv: Bierglas auf einem Bierdeckel mit Strichliste -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <!-- Bierdeckel -->
+    <path android:fillColor="#F3E6CF" android:pathData="M54,30a28,28 0,1 1,0 56a28,28 0,1 1,0 -56z" />
+    <path android:strokeColor="#3B2A1E" android:strokeWidth="2" android:fillColor="#00000000"
+        android:pathData="M54,34a24,24 0,1 1,0 48a24,24 0,1 1,0 -48z" />
+    <!-- Striche -->
+    <path android:strokeColor="#3B2A1E" android:strokeWidth="2.4" android:strokeLineCap="round"
+        android:pathData="M36,70l0,8 M40,70l0,8 M44,70l0,8 M48,70l0,8 M34,77l16,-6" />
+    <!-- Glas -->
+    <path android:fillColor="#E0A030" android:pathData="M52,40l20,0l-2.5,34l-15,0z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M50,36c2,-5 8,-6 10,-3c2,-4 9,-4 11,0c3,0 5,3 3,6l-24,1c-2,-1 -2,-3 0,-4z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="2" android:strokeLineCap="round" android:fillColor="#00000000"
+        android:pathData="M57,46l1.2,22" />
+</vector>
