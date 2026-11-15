@@ -8,6 +8,6 @@
         <exclude domain="sharedpref" />
     </cloud-backup>
     <device-transfer>
-        <exclude domain="sharedpref" path="tresenkasse.xml" />
+        <exclude domain="sharedpref" path="zettelwirtschaft-kasse.xml" />
     </device-transfer>
 </data-extraction-rules>

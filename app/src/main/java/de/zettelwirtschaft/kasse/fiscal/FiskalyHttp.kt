@@ -1,4 +1,4 @@
-package de.tresenkasse.app.fiscal
+package de.zettelwirtschaft.kasse.fiscal
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -34,7 +34,7 @@ class FiskalyHttp(
     private var tokenValidUntil = 0L
     private var tokenKey: String? = null
 
-    private fun userAgent() = "Tresenkasse-Android"
+    private fun userAgent() = "Zettelwirtschaft-Kasse-Android"
 
     private fun ensureToken() {
         val (key, secret) = credentials()

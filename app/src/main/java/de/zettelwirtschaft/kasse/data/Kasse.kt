@@ -1,6 +1,6 @@
-package de.tresenkasse.app.data
+package de.zettelwirtschaft.kasse.data
 
-import de.tresenkasse.app.fiscal.*
+import de.zettelwirtschaft.kasse.fiscal.*
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
@@ -167,7 +167,7 @@ class Kasse(
         require(name.isNotBlank()) { "Name fehlt" }
         require(GiroCode.isValidIban(iban)) { "IBAN ist ungültig" }
         dir.mkdirs()
-        val ref = "TK" + System.currentTimeMillis().toString(36).uppercase()
+        val ref = "ZW" + System.currentTimeMillis().toString(36).uppercase()
         val f = File(dir, "$ref.png").apply { writeBytes(signaturePng) }
         val m = Mandate(reference = ref, name = name.trim(), iban = GiroCode.normalizeIban(iban), bic = bic.trim().uppercase(),
             signedAt = System.currentTimeMillis(), signatureFile = f.absolutePath)
@@ -197,7 +197,7 @@ class Kasse(
         val debits = open.map { r ->
             val m = dao.mandate(r.mandateId!!) ?: error("Mandat zu Beleg ${r.number} fehlt")
             Debit(
-                endToEndId = "TK-${r.number}",
+                endToEndId = "ZW-${r.number}",
                 cents = r.totalCents,
                 mandateRef = m.reference,
                 mandateSignedOn = java.time.Instant.ofEpochMilli(m.signedAt).atZone(zone).toLocalDate(),
@@ -208,7 +208,7 @@ class Kasse(
         }
         val now = java.time.LocalDateTime.now(zone).withNano(0)
         val xml = SepaDebit.pain008(
-            messageId = "TK" + System.currentTimeMillis().toString(36).uppercase(),
+            messageId = "ZW" + System.currentTimeMillis().toString(36).uppercase(),
             createdAt = now.toString().let { if (it.length == 16) "$it:00" else it },
             collectionDate = collectionDate,
             creditor = Creditor(c.accountHolder, c.iban, c.bic, c.creditorId),

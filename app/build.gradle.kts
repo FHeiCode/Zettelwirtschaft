@@ -19,11 +19,11 @@ val releaseVersion: String? = System.getenv("RELEASE_VERSION")?.takeIf { it.isNo
     ?: tagName?.trimStart('v', 'V')
 
 android {
-    namespace = "de.tresenkasse.app"
+    namespace = "de.zettelwirtschaft.kasse"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "de.tresenkasse.app"
+        applicationId = "de.zettelwirtschaft.kasse"
         minSdk = 26
         targetSdk = 35
         versionCode = if (runNumber != null) 100 + runNumber else 1
@@ -32,7 +32,7 @@ android {
 
     signingConfigs {
         if (signingKeystore != null) {
-            create("tresenkasse") {
+            create("release") {
                 storeFile = file(signingKeystore)
                 storePassword = System.getenv("SIGNING_STORE_PASSWORD")
                 keyAlias = System.getenv("SIGNING_KEY_ALIAS")
@@ -43,11 +43,11 @@ android {
 
     buildTypes {
         debug {
-            if (signingKeystore != null) signingConfig = signingConfigs.getByName("tresenkasse")
+            if (signingKeystore != null) signingConfig = signingConfigs.getByName("release")
         }
         release {
             isMinifyEnabled = false
-            if (signingKeystore != null) signingConfig = signingConfigs.getByName("tresenkasse")
+            if (signingKeystore != null) signingConfig = signingConfigs.getByName("release")
         }
     }
 

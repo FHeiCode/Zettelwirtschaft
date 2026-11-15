@@ -1,4 +1,4 @@
-package de.tresenkasse.app.ui
+package de.zettelwirtschaft.kasse.ui
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -19,9 +19,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import de.tresenkasse.app.fiscal.aggregate
-import de.tresenkasse.app.fiscal.euro
-import de.tresenkasse.app.fiscal.parseEuro
+import de.zettelwirtschaft.kasse.fiscal.aggregate
+import de.zettelwirtschaft.kasse.fiscal.euro
+import de.zettelwirtschaft.kasse.fiscal.parseEuro
 
 @Composable
 fun KasseScreen(vm: KasseViewModel) {

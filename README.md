@@ -1,4 +1,6 @@
-# Tresenkasse
+# Zettelwirtschaft – Kasse
+
+Eigenständige App neben der Ausgaben-App Zettelwirtschaft (eigenes Paket `de.zettelwirtschaft.kasse`, beide laufen nebeneinander).
 
 Kassen-App für Kneipen auf dem Android-Handy. Sie arbeitet mit einer Cloud-TSE (fiskaly) und unterstützt Deckel, Barzahlung, Überweisung per GiroCode und SEPA-Lastschrift für Stammgäste.
 
@@ -33,7 +35,7 @@ Alle Daten bleiben auf dem Handy und gehen nicht in Cloud-Backups. Ausnahme sind
 ## Installation
 
 Die aktuelle APK gibt es immer unter
-`https://github.com/FHeiCode/Tresenkasse/releases/latest/download/tresenkasse.apk`
+`https://github.com/FHeiCode/zettelwirtschaft-kasse/releases/latest/download/zettelwirtschaft-kasse.apk`
 
 ## Build und Release
 
@@ -50,7 +52,7 @@ Die aktuelle APK gibt es immer unter
 
 Einen neuen Keystore erzeugst du mit:
 ```bash
-keytool -genkeypair -v -keystore release.jks -alias tresenkasse -keyalg RSA -keysize 4096 -validity 10000
+keytool -genkeypair -v -keystore release.jks -alias zettelwirtschaft-kasse -keyalg RSA -keysize 4096 -validity 10000
 ```
 
 Lokal bauen: `gradle testDebugUnitTest assembleDebug` (Gradle 9.8, JDK 17, Android SDK 35).

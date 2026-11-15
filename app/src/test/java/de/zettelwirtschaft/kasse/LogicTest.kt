@@ -1,9 +1,9 @@
-package de.tresenkasse.app
+package de.zettelwirtschaft.kasse
 
-import de.tresenkasse.app.data.Receipt
-import de.tresenkasse.app.data.ReceiptLine
-import de.tresenkasse.app.data.ReceiptWithLines
-import de.tresenkasse.app.fiscal.*
+import de.zettelwirtschaft.kasse.data.Receipt
+import de.zettelwirtschaft.kasse.data.ReceiptLine
+import de.zettelwirtschaft.kasse.data.ReceiptWithLines
+import de.zettelwirtschaft.kasse.fiscal.*
 import org.junit.Assert.*
 import org.junit.Test
 import java.time.LocalDate
@@ -50,7 +50,7 @@ class LogicTest {
         val xml = SepaDebit.pain008(
             "MSG1", "2026-11-15T21:00:00", LocalDate.of(2026, 11, 18),
             Creditor("Zur Linde & Co", "DE89370400440532013000", "", "DE98ZZZ09999999999"),
-            listOf(Debit("TK-1", 1250, "TKABC", LocalDate.of(2026, 11, 1), "Max Müller", "DE89370400440532013000", "", "Beleg 1")),
+            listOf(Debit("ZW-1", 1250, "TKABC", LocalDate.of(2026, 11, 1), "Max Müller", "DE89370400440532013000", "", "Beleg 1")),
         )
         assertTrue(xml.contains("urn:iso:std:iso:20022:tech:xsd:pain.008.001.08"))
         assertTrue(xml.contains("<CtrlSum>12.50</CtrlSum>"))

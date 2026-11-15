@@ -1,4 +1,4 @@
-package de.tresenkasse.app.ui
+package de.zettelwirtschaft.kasse.ui
 
 import android.graphics.Bitmap
 import android.graphics.Color as AColor
@@ -30,7 +30,7 @@ private val Dark = darkColorScheme(
 )
 
 @Composable
-fun TresenTheme(content: @Composable () -> Unit) {
+fun KassenTheme(content: @Composable () -> Unit) {
     MaterialTheme(colorScheme = if (isSystemInDarkTheme()) Dark else Light, content = content)
 }
 

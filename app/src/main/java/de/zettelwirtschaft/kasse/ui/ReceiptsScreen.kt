@@ -1,4 +1,4 @@
-package de.tresenkasse.app.ui
+package de.zettelwirtschaft.kasse.ui
 
 import android.content.Context
 import android.content.Intent
@@ -28,10 +28,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.FileProvider
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import de.tresenkasse.app.data.ReceiptWithLines
-import de.tresenkasse.app.fiscal.GiroCode
-import de.tresenkasse.app.fiscal.ReceiptText
-import de.tresenkasse.app.fiscal.euro
+import de.zettelwirtschaft.kasse.data.ReceiptWithLines
+import de.zettelwirtschaft.kasse.fiscal.GiroCode
+import de.zettelwirtschaft.kasse.fiscal.ReceiptText
+import de.zettelwirtschaft.kasse.fiscal.euro
 import java.io.File
 
 @Composable

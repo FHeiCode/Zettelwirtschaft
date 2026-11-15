@@ -1,4 +1,4 @@
-# Tresenkasse – Arbeitsregeln für Claude
+# Zettelwirtschaft (Kasse) – Arbeitsregeln für Claude
 
 Android-App (Kotlin, Jetpack Compose, Material3, JDK 17). Antworten und Kommentare auf Deutsch, in einfacher Sprache.
 

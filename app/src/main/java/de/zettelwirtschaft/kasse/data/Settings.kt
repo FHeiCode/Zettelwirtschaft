@@ -1,4 +1,4 @@
-package de.tresenkasse.app.data
+package de.zettelwirtschaft.kasse.data
 
 import android.content.Context
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +35,7 @@ data class Config(
 
 /** Einstellungen im privaten App-Speicher (nicht in Backups, siehe Manifest). */
 class Settings(context: Context) {
-    private val prefs = context.getSharedPreferences("tresenkasse", Context.MODE_PRIVATE)
+    private val prefs = context.getSharedPreferences("zettelwirtschaft-kasse", Context.MODE_PRIVATE)
     private val _config = MutableStateFlow(read())
     val config: StateFlow<Config> = _config
     val current: Config get() = _config.value

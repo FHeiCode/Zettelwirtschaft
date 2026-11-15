@@ -1,6 +1,6 @@
-package de.tresenkasse.app.fiscal
+package de.zettelwirtschaft.kasse.fiscal
 
-import de.tresenkasse.app.data.Settings
+import de.zettelwirtschaft.kasse.data.Settings
 import org.json.JSONArray
 import org.json.JSONObject
 import java.security.SecureRandom
@@ -38,7 +38,7 @@ class SignDe(private val settings: Settings) {
         if (c.tssId.isBlank()) {
             progress("TSE wird angelegt …")
             val id = UUID.randomUUID().toString()
-            val r = http.call("PUT", "/tss/$id", JSONObject().put("description", "Tresenkasse"), long = true)
+            val r = http.call("PUT", "/tss/$id", JSONObject().put("description", "Zettelwirtschaft"), long = true)
             settings.update { it.copy(tssId = id, adminPuk = r.optString("admin_puk"), adminPin = "", clientId = "", clientSerial = "", cashRegisterRegistered = false) }
             c = settings.current
         }
@@ -70,7 +70,7 @@ class SignDe(private val settings: Settings) {
             progress("Kasse wird an der TSE angemeldet …")
             adminAuth(c.tssId, c.adminPin)
             val cid = UUID.randomUUID().toString()
-            val serial = "TRESEN-" + cid.take(8).uppercase()
+            val serial = "ZW-KASSE-" + cid.take(8).uppercase()
             val r = http.call("PUT", "$tssPath/client/$cid", JSONObject().put("serial_number", serial), long = true)
             settings.update { it.copy(clientId = cid, clientSerial = r.optString("serial_number", serial)) }
         }

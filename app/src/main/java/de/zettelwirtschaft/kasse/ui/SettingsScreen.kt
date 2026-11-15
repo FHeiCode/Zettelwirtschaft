@@ -1,4 +1,4 @@
-package de.tresenkasse.app.ui
+package de.zettelwirtschaft.kasse.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,12 +18,12 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import de.tresenkasse.app.data.Product
-import de.tresenkasse.app.fiscal.GiroCode
-import de.tresenkasse.app.fiscal.SepaDebit
-import de.tresenkasse.app.fiscal.Vat
-import de.tresenkasse.app.fiscal.euro
-import de.tresenkasse.app.fiscal.parseEuro
+import de.zettelwirtschaft.kasse.data.Product
+import de.zettelwirtschaft.kasse.fiscal.GiroCode
+import de.zettelwirtschaft.kasse.fiscal.SepaDebit
+import de.zettelwirtschaft.kasse.fiscal.Vat
+import de.zettelwirtschaft.kasse.fiscal.euro
+import de.zettelwirtschaft.kasse.fiscal.parseEuro
 
 @Composable
 fun SettingsScreen(vm: KasseViewModel) {

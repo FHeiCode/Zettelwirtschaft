@@ -1,9 +1,9 @@
-package de.tresenkasse.app.data
+package de.zettelwirtschaft.kasse.data
 
 import android.content.Context
 import androidx.room.*
-import de.tresenkasse.app.fiscal.Line
-import de.tresenkasse.app.fiscal.Vat
+import de.zettelwirtschaft.kasse.fiscal.Line
+import de.zettelwirtschaft.kasse.fiscal.Vat
 import kotlinx.coroutines.flow.Flow
 
 @Entity
@@ -254,6 +254,6 @@ abstract class KasseDb : RoomDatabase() {
 
     companion object {
         fun create(context: Context): KasseDb =
-            Room.databaseBuilder(context, KasseDb::class.java, "tresenkasse.db").build()
+            Room.databaseBuilder(context, KasseDb::class.java, "zettelwirtschaft-kasse.db").build()
     }
 }

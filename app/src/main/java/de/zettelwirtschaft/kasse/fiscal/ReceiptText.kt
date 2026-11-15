@@ -1,7 +1,7 @@
-package de.tresenkasse.app.fiscal
+package de.zettelwirtschaft.kasse.fiscal
 
-import de.tresenkasse.app.data.Config
-import de.tresenkasse.app.data.ReceiptWithLines
+import de.zettelwirtschaft.kasse.data.Config
+import de.zettelwirtschaft.kasse.data.ReceiptWithLines
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter

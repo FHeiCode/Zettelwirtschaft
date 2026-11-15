@@ -1,4 +1,4 @@
-package de.tresenkasse.app.ui
+package de.zettelwirtschaft.kasse.ui
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -13,8 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import de.tresenkasse.app.fiscal.aggregate
-import de.tresenkasse.app.fiscal.euro
+import de.zettelwirtschaft.kasse.fiscal.aggregate
+import de.zettelwirtschaft.kasse.fiscal.euro
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter

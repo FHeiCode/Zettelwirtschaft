@@ -1,13 +1,13 @@
-package de.tresenkasse.app.ui
+package de.zettelwirtschaft.kasse.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import de.tresenkasse.app.TresenApp
-import de.tresenkasse.app.data.*
-import de.tresenkasse.app.fiscal.Line
-import de.tresenkasse.app.fiscal.Vat
-import de.tresenkasse.app.fiscal.aggregate
+import de.zettelwirtschaft.kasse.KassenApp
+import de.zettelwirtschaft.kasse.data.*
+import de.zettelwirtschaft.kasse.fiscal.Line
+import de.zettelwirtschaft.kasse.fiscal.Vat
+import de.zettelwirtschaft.kasse.fiscal.aggregate
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -23,10 +23,10 @@ sealed interface Overlay {
 }
 
 class KasseViewModel(app: Application) : AndroidViewModel(app) {
-    private val tresen = app as TresenApp
-    private val dao = tresen.db.dao()
-    val kasse = tresen.kasse
-    val config: StateFlow<Config> = tresen.settings.config
+    private val kassenApp = app as KassenApp
+    private val dao = kassenApp.db.dao()
+    val kasse = kassenApp.kasse
+    val config: StateFlow<Config> = kassenApp.settings.config
 
     val products = dao.activeProducts().stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
     val allProducts = dao.allProducts().stateIn(viewModelScope, SharingStarted.Eagerly, emptyList())
@@ -171,7 +171,7 @@ class KasseViewModel(app: Application) : AndroidViewModel(app) {
 
     // ----- Einstellungen -----
 
-    fun updateConfig(change: (Config) -> Config) = tresen.settings.update(change)
+    fun updateConfig(change: (Config) -> Config) = kassenApp.settings.update(change)
 
     fun setupTse() = run("TSE wird eingerichtet …") {
         kasse.setupTse { busy.value = it }

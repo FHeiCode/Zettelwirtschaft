@@ -1,4 +1,4 @@
-package de.tresenkasse.app.fiscal
+package de.zettelwirtschaft.kasse.fiscal
 
 import java.math.BigInteger
 import java.time.LocalDate

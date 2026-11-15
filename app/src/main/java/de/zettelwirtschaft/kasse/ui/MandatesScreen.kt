@@ -1,4 +1,4 @@
-package de.tresenkasse.app.ui
+package de.zettelwirtschaft.kasse.ui
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -35,12 +35,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import de.tresenkasse.app.data.Config
-import de.tresenkasse.app.data.Mandate
-import de.tresenkasse.app.fiscal.Creditor
-import de.tresenkasse.app.fiscal.GiroCode
-import de.tresenkasse.app.fiscal.SepaDebit
-import de.tresenkasse.app.fiscal.euro
+import de.zettelwirtschaft.kasse.data.Config
+import de.zettelwirtschaft.kasse.data.Mandate
+import de.zettelwirtschaft.kasse.fiscal.Creditor
+import de.zettelwirtschaft.kasse.fiscal.GiroCode
+import de.zettelwirtschaft.kasse.fiscal.SepaDebit
+import de.zettelwirtschaft.kasse.fiscal.euro
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.text.DateFormat

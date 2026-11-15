@@ -1,7 +1,7 @@
-package de.tresenkasse.app.fiscal
+package de.zettelwirtschaft.kasse.fiscal
 
-import de.tresenkasse.app.data.ReceiptWithLines
-import de.tresenkasse.app.data.Settings
+import de.zettelwirtschaft.kasse.data.ReceiptWithLines
+import de.zettelwirtschaft.kasse.data.Settings
 import kotlinx.coroutines.delay
 import org.json.JSONArray
 import org.json.JSONObject
@@ -23,9 +23,9 @@ class Dsfinvk(private val settings: Settings) {
         val c = settings.current
         val body = JSONObject()
             .put("cash_register_type", JSONObject().put("type", "MASTER").put("tss_id", c.tssId))
-            .put("brand", "Tresenkasse")
+            .put("brand", "Zettelwirtschaft")
             .put("model", "Android")
-            .put("software", JSONObject().put("brand", "Tresenkasse").put("version", appVersion.take(50)))
+            .put("software", JSONObject().put("brand", "Zettelwirtschaft").put("version", appVersion.take(50)))
             .put("base_currency_code", "EUR")
         http.call("PUT", "/cash_registers/${c.clientId}", body, long = true)
         settings.update { it.copy(cashRegisterRegistered = true) }

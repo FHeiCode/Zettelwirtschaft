@@ -1,17 +1,17 @@
-package de.tresenkasse.app
+package de.zettelwirtschaft.kasse
 
 import android.app.Application
-import de.tresenkasse.app.data.Kasse
-import de.tresenkasse.app.data.KasseDb
-import de.tresenkasse.app.data.Product
-import de.tresenkasse.app.data.Settings
-import de.tresenkasse.app.fiscal.Vat
+import de.zettelwirtschaft.kasse.data.Kasse
+import de.zettelwirtschaft.kasse.data.KasseDb
+import de.zettelwirtschaft.kasse.data.Product
+import de.zettelwirtschaft.kasse.data.Settings
+import de.zettelwirtschaft.kasse.fiscal.Vat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
-class TresenApp : Application() {
+class KassenApp : Application() {
     lateinit var db: KasseDb
     lateinit var settings: Settings
     lateinit var kasse: Kasse

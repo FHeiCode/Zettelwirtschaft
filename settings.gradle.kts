@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Tresenkasse"
+rootProject.name = "Zettelwirtschaft"
 include(":app")

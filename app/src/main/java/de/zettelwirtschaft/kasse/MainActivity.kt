@@ -1,4 +1,4 @@
-package de.tresenkasse.app
+package de.zettelwirtschaft.kasse
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import de.tresenkasse.app.ui.*
+import de.zettelwirtschaft.kasse.ui.*
 
 class MainActivity : ComponentActivity() {
     private val vm: KasseViewModel by viewModels()
@@ -28,7 +28,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent { TresenTheme { Root(vm) } }
+        setContent { KassenTheme { Root(vm) } }
     }
 }
 
@@ -58,7 +58,7 @@ private fun Root(vm: KasseViewModel) {
     LaunchedEffect(Unit) { if (!config.tseReady || !config.businessComplete) page = Page.Einstellungen }
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text(if (page == Page.Kasse) "Tresenkasse" else page.title) }) },
+        topBar = { TopAppBar(title = { Text(if (page == Page.Kasse) "Zettelwirtschaft" else page.title) }) },
         bottomBar = {
             NavigationBar {
                 Page.entries.forEach { p ->

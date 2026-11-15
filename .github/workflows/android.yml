@@ -56,8 +56,8 @@ jobs:
           KEYSTORE_BASE64: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
         run: |
           if [ -n "$KEYSTORE_BASE64" ]; then
-            echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/tresenkasse.jks"
-            echo "SIGNING_KEYSTORE_FILE=$RUNNER_TEMP/tresenkasse.jks" >> "$GITHUB_ENV"
+            echo "$KEYSTORE_BASE64" | base64 -d > "$RUNNER_TEMP/zettelwirtschaft-kasse.jks"
+            echo "SIGNING_KEYSTORE_FILE=$RUNNER_TEMP/zettelwirtschaft-kasse.jks" >> "$GITHUB_ENV"
           else
             echo "::warning::Kein Signaturschlüssel hinterlegt. Diese APK kann eine installierte Version nicht aktualisieren (siehe README)."
           fi
@@ -72,19 +72,19 @@ jobs:
       - name: APK umbenennen
         run: |
           if [ -n "$RELEASE_VERSION" ]; then
-            NAME="tresenkasse-v$RELEASE_VERSION.apk"
+            NAME="zettelwirtschaft-kasse-v$RELEASE_VERSION.apk"
           else
-            NAME="tresenkasse-${GITHUB_REF_NAME//\//-}.apk"
+            NAME="zettelwirtschaft-kasse-${GITHUB_REF_NAME//\//-}.apk"
           fi
           cp app/build/outputs/apk/debug/app-debug.apk "$NAME"
-          # Zusätzlich fester Name: .../releases/latest/download/tresenkasse.apk zeigt immer auf das neueste Release.
-          cp app/build/outputs/apk/debug/app-debug.apk tresenkasse.apk
+          # Zusätzlich fester Name: .../releases/latest/download/zettelwirtschaft-kasse.apk zeigt immer auf das neueste Release.
+          cp app/build/outputs/apk/debug/app-debug.apk zettelwirtschaft-kasse.apk
           echo "APK_NAME=$NAME" >> "$GITHUB_ENV"
 
       # Immer: als Artefakt am Build-Lauf (Actions → Lauf → Artifacts)
       - uses: actions/upload-artifact@v7
         with:
-          name: tresenkasse-apk
+          name: zettelwirtschaft-kasse-apk
           path: ${{ env.APK_NAME }}
 
       # Release auf GitHub veröffentlicht: APK an dieses Release hängen (Titel und Text bleiben unverändert).
@@ -94,7 +94,7 @@ jobs:
         with:
           files: |
             ${{ env.APK_NAME }}
-            tresenkasse.apk
+            zettelwirtschaft-kasse.apk
 
       # Neues Release aus version.txt: Titel und Text aus release-notes.md (erste Zeile = Titel).
       - name: Release-Text vorbereiten
@@ -104,7 +104,7 @@ jobs:
             head -n1 release-notes.md | sed 's/^#* *//' > "$RUNNER_TEMP/title.txt"
             tail -n +2 release-notes.md | sed '/./,$!d' > "$RUNNER_TEMP/body.md"
           else
-            echo "Tresenkasse $RELEASE_VERSION" > "$RUNNER_TEMP/title.txt"
+            echo "Zettelwirtschaft $RELEASE_VERSION" > "$RUNNER_TEMP/title.txt"
             : > "$RUNNER_TEMP/body.md"
           fi
           echo "RELEASE_TITLE=$(cat "$RUNNER_TEMP/title.txt")" >> "$GITHUB_ENV"
@@ -120,4 +120,4 @@ jobs:
           make_latest: true
           files: |
             ${{ env.APK_NAME }}
-            tresenkasse.apk
+            zettelwirtschaft-kasse.apk
